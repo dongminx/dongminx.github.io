@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next pisces use-motion" lang="zh-Hans">
+<html class="theme-next gemini use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="董旻的个人站点">
 <meta property="og:description" content="变量变量的作用是什么？  保存数据，使用更方便 使用变量实际上就是使用变量中保存的值 变量的基本使用命名规则  开头可以使用英文字母 $ _ js是严格区分大小写的  var a; var A; 不能使用关键字和保留字 不能有空格  建议:变量的命名最好有意义  (困扰这着每一个程序员的问题)   声明  var num;//声明一个变量 var a, b, c, d;//声明多个变量 怪异的声明">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-31T09:05:23.351Z">
+<meta property="og:updated_time" content="2018-06-01T02:13:19.203Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javascript语言基础">
 <meta name="twitter:description" content="变量变量的作用是什么？  保存数据，使用更方便 使用变量实际上就是使用变量中保存的值 变量的基本使用命名规则  开头可以使用英文字母 $ _ js是严格区分大小写的  var a; var A; 不能使用关键字和保留字 不能有空格  建议:变量的命名最好有意义  (困扰这着每一个程序员的问题)   声明  var num;//声明一个变量 var a, b, c, d;//声明多个变量 怪异的声明">
@@ -97,7 +97,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Pisces',
+    scheme: 'Gemini',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -336,8 +336,8 @@ num = 100;
 num = &quot;hehe&quot;;
 初始化 : 变量在声明的同时给值
 var num = 100;
-</code></pre><h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><p>5大基本类型</p>
-<ol>
+</code></pre><h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><pre><code>5大基本类型
+</code></pre><ol>
 <li><p>字符串<br> 书写字符串必须加双引号或单引号。单引号和双引号必须成对出现</p>
 </li>
 <li><p>数值型<br> 普通数值 0-9  小数 0.1 1.3  极限值（了解）<br> 特殊值 NaN – not a number </p>
@@ -346,7 +346,9 @@ var num = 100;
 </li>
 <li><p>undefined<br> 只有自己一个值<br> undefined出现的情况：  变量声明未赋值，值为undefined</p>
 </li>
-<li>null<br> 空<h2 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h2></li>
+<li>null<br> 空</li>
+</ol>
+<h2 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h2><ol>
 <li><p>其他类型转换为字符串类型</p>
 <p> 强制转换:num.toString():null和undefined没有toString()方法，使用toString()的方式转换String(num):全能，内部也是调用toString方法<br> 隐式转换：使用+操作，用任意类型加任意字符串都会连接为新的字符串，一般我们为了不改变数据原有含义，一般加上空字符串“”</p>
 </li>
@@ -367,63 +369,195 @@ var num = 100;
 <p> 转换结果为false的是：“” 0 undefined null NaN false</p>
 <p> 隐式转换</p>
 <p> !!</p>
-<h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><p> 算数运算符 +-<em>/%<br> 一元运算符 操作数只有一个 ++ – 前置和后置的区别和计算方式<br> 比较运算符 &gt;&lt;&gt;=&lt;&gt;=返回bool值<br> 赋值运算符 = += -= </em>= /= %=操作的是变量自身的值<br> 相等运算符 ==相等!=不等===全等!==不全等<br> 逻辑运算符</p>
-<ol>
-<li>当操作数为bool值时：<br> 逻辑&amp;&amp;两个操作数都为true，结果为true，任何一个为false，结果为false<br> 逻辑活||两个操作数都为false，结果为false，任何一个为true，结果为true<br> 逻辑非 ！取反</li>
-<li><p>当操作数不是bool值时<br> 先进行隐式转换，然后从左往右看，哪个操作数能决定结果就返回哪个原操作数</p>
-<h2 id="运算符的优先级"><a href="#运算符的优先级" class="headerlink" title="运算符的优先级"></a>运算符的优先级</h2><p>优先级从高到低<br>()优先级最高<br>一元运算符 ++ – ！<br>算数运算符 先* / % 后 + -<br>关系运算符 &gt; &gt;= &lt; &lt;=<br>相等运算符 == != === !==<br>逻辑运算符 先&amp;&amp; 后||<br>三元运算符</p>
-<h2 id="if语句"><a href="#if语句" class="headerlink" title="if语句"></a>if语句</h2><p>if(条件是一个bool表达式){<br> 条件为真，执行内部代码，如果条件不是bool值，先隐式转换，然后判断<br>}<br>if 的三种结构<br>单if结构<br>if(){</p>
-<p>}<br>ifelse结构<br>if(){<br> 满足条件执行if内的代码<br>}else{<br> 不满足条件执行else中的代码<br>}<br>多个if的情况<br>if(){</p>
-<p>}else if(){</p>
-<p>}else if(){</p>
-<p>}else{</p>
-<p>}</p>
-<h2 id="switch语句"><a href="#switch语句" class="headerlink" title="switch语句"></a>switch语句</h2><p>switch 语句：一般用于进行单值判断，但是可以进行范围判断，条件和case值比较时是全等比较<br>switch(condition){<br> case value :</p>
-<pre><code>alert(&quot;&quot;);
-</code></pre><p> break必须加，否则执行会执行问题，一直执行后面case中的代码<br>}<br>使用switch进行范围判断的时候，将条件设置为true</p>
-<h2 id="三元运算符"><a href="#三元运算符" class="headerlink" title="三元运算符"></a>三元运算符</h2><p>语法 ：bool表达式?式子1：式子2<br>bool表达式结果为真会执行并返回式子1，否则执行并返回式子2<br>//检测两个数的大小<br>var num1=100;<br>var num2=200;<br>var maxNum=num1&gt;num2?num1:num2;<br>console.log(maxNum);</p>
-<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><p>数字的作用，用于保存多个数据。<br>数组中的数组我们称为数组的元素。<br>数组中可以保存多个类型的元素，但是不推荐</p>
-<h2 id="数组的声明方式"><a href="#数组的声明方式" class="headerlink" title="数组的声明方式"></a>数组的声明方式</h2><p>方式1：<br> var arr=new Array(1,2,3,4,5)直接添加元素<br>方式2：<br> 常用 数组字面量形式<br> var arr=[1,2,3,4,5];</p>
-<h2 id="数组的长度"><a href="#数组的长度" class="headerlink" title="数组的长度"></a>数组的长度</h2><p>数组的length属性表示数组中元素的个数。</p>
-<h2 id="数组的索引"><a href="#数组的索引" class="headerlink" title="数组的索引"></a>数组的索引</h2><p>数组中的元素按照索引排列，索引从0开始。<br>我们可以根据索引获取和修改数组中的元素。</p>
-<h2 id="数组的长度和索引的关系"><a href="#数组的长度和索引的关系" class="headerlink" title="数组的长度和索引的关系"></a>数组的长度和索引的关系</h2><p>数组中最后一项元素的索引为 arr.length-1<br>数组中新项的索引，为arr.length</p>
-<h2 id="数组的基本操作方法"><a href="#数组的基本操作方法" class="headerlink" title="数组的基本操作方法"></a>数组的基本操作方法</h2><p>正向遍历</p>
-<pre><code>var arr = [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;];
-//当我们操作数组中的所有元素时，索引呈现递增的有个数限制的状态，可以使用for循环，进行索引值的获取
-for (var i = 0; i &lt; arr.length; i++) {
-  //循环变量i相当于数组arr中每个元素的索引值
-  //console.log(i);
+</li>
+</ol>
+<h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><pre><code>算数运算符 +-*/%
+一元运算符 操作数只有一个 ++ -- 前置和后置的区别和计算方式
+比较运算符 &gt;&lt;&gt;=&lt;&gt;=返回bool值
+赋值运算符 = += -= *= /= %=操作的是变量自身的值
+相等运算符 ==相等!=不等===全等!==不全等
+逻辑运算符
+1. 当操作数为bool值时：
+    逻辑&amp;&amp;两个操作数都为true，结果为true，任何一个为false，结果为false
+    逻辑活||两个操作数都为false，结果为false，任何一个为true，结果为true
+    逻辑非 ！取反
+2. 当操作数不是bool值时
+    先进行隐式转换，然后从左往右看，哪个操作数能决定结果就返回哪个原操作数
+</code></pre><h2 id="运算符的优先级"><a href="#运算符的优先级" class="headerlink" title="运算符的优先级"></a>运算符的优先级</h2><pre><code>优先级从高到低
+()优先级最高
+一元运算符 ++ -- ！
+算数运算符 先* / % 后 + -
+关系运算符 &gt; &gt;= &lt; &lt;=
+相等运算符 == != === !==
+逻辑运算符 先&amp;&amp; 后||
+三元运算符
+</code></pre><h2 id="if语句"><a href="#if语句" class="headerlink" title="if语句"></a>if语句</h2><pre><code>if(条件是一个bool表达式){
+    条件为真，执行内部代码，如果条件不是bool值，先隐式转换，然后判断
+}
+if 的三种结构
+单if结构
+if(){
+
+}
+ifelse结构
+if(){
+    满足条件执行if内的代码
+}else{
+    不满足条件执行else中的代码
+}
+多个if的情况
+if(){
+
+}else if(){
+
+}else if(){
+
+}else{
+
+}
+</code></pre><h2 id="switch语句"><a href="#switch语句" class="headerlink" title="switch语句"></a>switch语句</h2><pre><code>switch 语句：一般用于进行单值判断，但是可以进行范围判断，条件和case值比较时是全等比较
+switch(condition){
+    case value :
+        alert(&quot;&quot;);
+    break必须加，否则执行会执行问题，一直执行后面case中的代码
+}
+使用switch进行范围判断的时候，将条件设置为true
+</code></pre><h2 id="三元运算符"><a href="#三元运算符" class="headerlink" title="三元运算符"></a>三元运算符</h2><pre><code>语法 ：bool表达式?式子1：式子2
+bool表达式结果为真会执行并返回式子1，否则执行并返回式子2
+//检测两个数的大小
+var num1=100;
+var num2=200;
+var maxNum=num1&gt;num2?num1:num2;
+console.log(maxNum);
+</code></pre><h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><p>数字的作用，用于保存多个数据。<br>数组中的数组我们称为数组的元素。<br>数组中可以保存多个类型的元素，但是不推荐</p>
+<h2 id="数组的声明方式"><a href="#数组的声明方式" class="headerlink" title="数组的声明方式"></a>数组的声明方式</h2><pre><code>方式1：
+    var arr=new Array(1,2,3,4,5)直接添加元素
+方式2：
+    常用 数组字面量形式
+    var arr=[1,2,3,4,5];
+</code></pre><h2 id="数组的长度"><a href="#数组的长度" class="headerlink" title="数组的长度"></a>数组的长度</h2><pre><code>数组的length属性表示数组中元素的个数。
+</code></pre><h2 id="数组的索引"><a href="#数组的索引" class="headerlink" title="数组的索引"></a>数组的索引</h2><pre><code>数组中的元素按照索引排列，索引从0开始。
+我们可以根据索引获取和修改数组中的元素。
+</code></pre><h2 id="数组的长度和索引的关系"><a href="#数组的长度和索引的关系" class="headerlink" title="数组的长度和索引的关系"></a>数组的长度和索引的关系</h2><pre><code>数组中最后一项元素的索引为 arr.length-1
+数组中新项的索引，为arr.length
+</code></pre><h2 id="数组的基本操作方法"><a href="#数组的基本操作方法" class="headerlink" title="数组的基本操作方法"></a>数组的基本操作方法</h2><pre><code>正向遍历
+        var arr = [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;];
+        //当我们操作数组中的所有元素时，索引呈现递增的有个数限制的状态，可以使用for循环，进行索引值的获取
+        for (var i = 0; i &lt; arr.length; i++) {
+          //循环变量i相当于数组arr中每个元素的索引值
+          //console.log(i);
+          //将i作为我索引值使用，获取arr中每个元素的值
+          console.log(arr[i]);
+        }
+
+//这种使用for循环操作数组中所有元素的方式，称为数组遍历。
+//反向遍历
+for (var i = arr.length - 1; i &gt;= 0; i--) {
   //将i作为我索引值使用，获取arr中每个元素的值
   console.log(arr[i]);
+
 }
-</code></pre><p>//这种使用for循环操作数组中所有元素的方式，称为数组遍历。<br>//反向遍历<br>for (var i = arr.length - 1; i &gt;= 0; i–) {<br>//将i作为我索引值使用，获取arr中每个元素的值<br>console.log(arr[i]);</p>
-<p>}</p>
-<p>反向遍历<br> for (var i = arr.length - 1; i &gt;= 0; i–) {<br> //将i作为我索引值使用，获取arr中每个元素的值</p>
-<pre><code>console.log(arr[i]); 
-</code></pre><p> }</p>
-<h2 id="基本类型和复杂数据类型"><a href="#基本类型和复杂数据类型" class="headerlink" title="基本类型和复杂数据类型"></a>基本类型和复杂数据类型</h2><p>基本数据类型：字符串 数值型 boolean undefined null<br>复杂数组类型: 数组<br>基本数据类型只是一个单一的值。<br>复杂数据类型可以一次保存多个值，方便存储使用</p>
-<h2 id="数据类型检测"><a href="#数据类型检测" class="headerlink" title="数据类型检测"></a>数据类型检测</h2><p>基本类型的类型检测：typeof()<br>Object.prototype.toString.call(arr);<br>结果为字符串的“[object Array]”不太好记<br>arr instanceof Array;  返回bool值 注意，后面的Array的A要大写<br>Array.isArray(arr);   返回bool值   ie9以上可以使用</p>
-<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><p>简介：函数的作用就是在你需要的时候重复使用代码，函数是在调用时执行的可重复使用的代码块。</p>
-<h2 id="函授的声明方式"><a href="#函授的声明方式" class="headerlink" title="函授的声明方式"></a>函授的声明方式</h2><p>function 函数名(){<br> 这里面是你要写的代码块，标志着执行函数时，要执行哪些代码<br>}<br>函数内的代码本身是不会执行的。在我们需要执行的时候去执行</p>
-<h2 id="调用"><a href="#调用" class="headerlink" title="调用"></a>调用</h2><p>函数内的代码只有在调用的时候才会执行，执行在你调用的位置。<br>写发 函数名();</p>
-<h2 id="函数名的使用"><a href="#函数名的使用" class="headerlink" title="函数名的使用"></a>函数名的使用</h2><p>当我们单独的使用的了函数名时，代表了这个函数的所有代码（函数体）</p>
-<h2 id="函数的参数"><a href="#函数的参数" class="headerlink" title="函数的参数"></a>函数的参数</h2><p>有时候函数内的代码有一些参与运算的值是不确定的，我们可以在使用函数的时候去添加这些值，去参与到计算中，我们称为参数。<br>function fun(n){<br> console.log(n);<br>}<br>在函数中声明的参数，我们称为形参，这个参数本身是没有值的，这个值是使用者在使用函数的时候传入的，这个参数我们称为实参，实际的参数，<br>fun(100);</p>
-<h2 id="函数内的变量"><a href="#函数内的变量" class="headerlink" title="函数内的变量"></a>函数内的变量</h2><p>函数内声明的变量在函数外无法访问</p>
-<h2 id="函数的返回值"><a href="#函数的返回值" class="headerlink" title="函数的返回值"></a>函数的返回值</h2><p>作用：可以让你设置一个函数内的值，可以被函数外访问<br>return 变量;<br>return的第二个作用表示跳出这个函数，后面的代码都不执行了。<br>所以一个函数只能有一个返回值。</p>
-<h2 id="函数的大体概括"><a href="#函数的大体概括" class="headerlink" title="函数的大体概括"></a>函数的大体概括</h2><p>function fun(n,m){<br> return;<br>}<br>fun(100,200);<br>函数的参数和返回值都是可有可无的，什么时候有看需求，<br>如果函数没有设置返回值，返回值默认为undefined<br>undefined出现的情况：变量声明未赋值，访问数组中不存在的元素，一个函数没有设置返回值，默认为undefined</p>
-<h2 id="变量作用域"><a href="#变量作用域" class="headerlink" title="变量作用域"></a>变量作用域</h2><p>全局作用域就是script标签内，函数外。<br>在全局作用域中声明的变量为全局变量，全局变量在任何地方都可以访问。变量只能在函数内部被访问</p>
-<h2 id="作用域的优先级"><a href="#作用域的优先级" class="headerlink" title="作用域的优先级"></a>作用域的优先级</h2><p>当我们在某一个作用域内使用一个变量的时候，会优先搜索当前作用域，如果当前作用域已经有了，就使用这个作用域中的变量值，不会向外面寻找。</p>
-<h2 id="js解析的过程"><a href="#js解析的过程" class="headerlink" title="js解析的过程"></a>js解析的过程</h2><p>1.预解析<br>2.解析一行执行一行<br>3.先去寻找你当前作用域中的所有变量声明 var。将变量声明语句提升到当前作用域顶部。<br>4.变量的赋值语句保留在原始的位置<br>5.函数提升，先去寻找所有的函数，然后整体提升到顶端</p>
-<h2 id="函数的声明方式"><a href="#函数的声明方式" class="headerlink" title="函数的声明方式"></a>函数的声明方式</h2><p>function fun(){};函数声明语句<br>var fun =function(){};函数表达式<br>由于函数表达式是将一个函数保存在一个变量中，在预解析阶段，遵循变量提升的规则，导致无法在声明之前进行调用</p>
-<h2 id="匿名函数和自调用函数"><a href="#匿名函数和自调用函数" class="headerlink" title="匿名函数和自调用函数"></a>匿名函数和自调用函数</h2><p>匿名函数就是没有名字的函数<br>function(){</p>
-<p>}<br>一般是在函数表达式内使用，不能单独存在<br>自调用函数<br>(function(a){<br> console.log(a);<br>})(1);<br>会在书写的位置上执行一次<br>回调函数<br>将一个函数作为其他函数的参数进行传递。<br>函数的类型<br>检测方式typeof()函数的类型是function<br>函数注释的使用<br>在函数前输入/**点击回车，可以输入一些跟函数参数返回值相关的标注。</p>
-<h2 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h2><p>每一个对象都有自身的特征和自身的行为</p>
-<p>董旻-一个具体的对象<br>特征：<br> 衣服：粉色<br> 颜值:S<br> 技术：硬<br>行为：<br> 抽烟<br> 喝酒<br> 烫头<br>创建对象的方式：<br>var obj={};<br>var obj=new Object();<br>添加属性和方法通过对象名.属性名<br>Dm.faceValue=”S”;<br>方法跟属性的区别在于，方法中保存的是函数<br>Dm.sayHi=function(){<br> alert(“Nihao”);<br>};</p>
-<h2 id="this"><a href="#this" class="headerlink" title="this"></a>this</h2><p>在方法中使用this表示这个方法所属于的对象。<br>构造函数<br>在调用构造函数的时候，调用前加new<br>构造函数的作用就是创建对象，在构造函数内需要做的事情就是添加属性和方法，<br>使用this，this就代表创造出来的对象，<br>构造函数的名字，首字母大写</p>
-</li>
-</ol>
-</li>
-</ol>
+
+反向遍历
+    for (var i = arr.length - 1; i &gt;= 0; i--) {
+    //将i作为我索引值使用，获取arr中每个元素的值
+        console.log(arr[i]); 
+    }
+</code></pre><h2 id="基本类型和复杂数据类型"><a href="#基本类型和复杂数据类型" class="headerlink" title="基本类型和复杂数据类型"></a>基本类型和复杂数据类型</h2><pre><code>基本数据类型：字符串 数值型 boolean undefined null
+复杂数组类型: 数组
+基本数据类型只是一个单一的值。
+复杂数据类型可以一次保存多个值，方便存储使用
+</code></pre><h2 id="数据类型检测"><a href="#数据类型检测" class="headerlink" title="数据类型检测"></a>数据类型检测</h2><pre><code>基本类型的类型检测：typeof()
+Object.prototype.toString.call(arr);
+结果为字符串的“[object Array]”不太好记
+arr instanceof Array;  返回bool值 注意，后面的Array的A要大写
+Array.isArray(arr);   返回bool值   ie9以上可以使用
+</code></pre><h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><p>简介：函数的作用就是在你需要的时候重复使用代码，函数是在调用时执行的可重复使用的代码块。</p>
+<h2 id="函授的声明方式"><a href="#函授的声明方式" class="headerlink" title="函授的声明方式"></a>函授的声明方式</h2><pre><code>function 函数名(){
+    这里面是你要写的代码块，标志着执行函数时，要执行哪些代码
+}
+函数内的代码本身是不会执行的。在我们需要执行的时候去执行
+</code></pre><h2 id="调用"><a href="#调用" class="headerlink" title="调用"></a>调用</h2><pre><code>函数内的代码只有在调用的时候才会执行，执行在你调用的位置。
+写发 函数名();
+</code></pre><h2 id="函数名的使用"><a href="#函数名的使用" class="headerlink" title="函数名的使用"></a>函数名的使用</h2><pre><code>当我们单独的使用的了函数名时，代表了这个函数的所有代码（函数体）
+</code></pre><h2 id="函数的参数"><a href="#函数的参数" class="headerlink" title="函数的参数"></a>函数的参数</h2><pre><code>有时候函数内的代码有一些参与运算的值是不确定的，我们可以在使用函数的时候去添加这些值，去参与到计算中，我们称为参数。
+function fun(n){
+    console.log(n);
+}
+在函数中声明的参数，我们称为形参，这个参数本身是没有值的，这个值是使用者在使用函数的时候传入的，这个参数我们称为实参，实际的参数，
+fun(100);
+</code></pre><h2 id="函数内的变量"><a href="#函数内的变量" class="headerlink" title="函数内的变量"></a>函数内的变量</h2><pre><code>函数内声明的变量在函数外无法访问
+</code></pre><h2 id="函数的返回值"><a href="#函数的返回值" class="headerlink" title="函数的返回值"></a>函数的返回值</h2><pre><code>作用：可以让你设置一个函数内的值，可以被函数外访问
+return 变量;
+return的第二个作用表示跳出这个函数，后面的代码都不执行了。
+所以一个函数只能有一个返回值。
+</code></pre><h2 id="函数的大体概括"><a href="#函数的大体概括" class="headerlink" title="函数的大体概括"></a>函数的大体概括</h2><pre><code>function fun(n,m){
+    return;
+}
+fun(100,200);
+函数的参数和返回值都是可有可无的，什么时候有看需求，
+如果函数没有设置返回值，返回值默认为undefined
+undefined出现的情况：变量声明未赋值，访问数组中不存在的元素，一个函数没有设置返回值，默认为undefined
+</code></pre><h2 id="变量作用域"><a href="#变量作用域" class="headerlink" title="变量作用域"></a>变量作用域</h2><pre><code>全局作用域就是script标签内，函数外。
+在全局作用域中声明的变量为全局变量，全局变量在任何地方都可以访问。变量只能在函数内部被访问
+</code></pre><h2 id="作用域的优先级"><a href="#作用域的优先级" class="headerlink" title="作用域的优先级"></a>作用域的优先级</h2><pre><code>当我们在某一个作用域内使用一个变量的时候，会优先搜索当前作用域，如果当前作用域已经有了，就使用这个作用域中的变量值，不会向外面寻找。
+</code></pre><h2 id="js解析的过程"><a href="#js解析的过程" class="headerlink" title="js解析的过程"></a>js解析的过程</h2><pre><code>1.预解析
+2.解析一行执行一行
+3.先去寻找你当前作用域中的所有变量声明 var。将变量声明语句提升到当前作用域顶部。
+4.变量的赋值语句保留在原始的位置
+5.函数提升，先去寻找所有的函数，然后整体提升到顶端
+</code></pre><h2 id="函数的声明方式"><a href="#函数的声明方式" class="headerlink" title="函数的声明方式"></a>函数的声明方式</h2><pre><code>function fun(){};函数声明语句
+var fun =function(){};函数表达式
+由于函数表达式是将一个函数保存在一个变量中，在预解析阶段，遵循变量提升的规则，导致无法在声明之前进行调用
+</code></pre><h2 id="匿名函数和自调用函数"><a href="#匿名函数和自调用函数" class="headerlink" title="匿名函数和自调用函数"></a>匿名函数和自调用函数</h2><pre><code>匿名函数就是没有名字的函数
+function(){
+
+}
+一般是在函数表达式内使用，不能单独存在
+自调用函数
+(function(a){
+    console.log(a);
+})(1);
+会在书写的位置上执行一次
+回调函数
+将一个函数作为其他函数的参数进行传递。
+函数的类型
+检测方式typeof()函数的类型是function
+函数注释的使用
+在函数前输入/**点击回车，可以输入一些跟函数参数返回值相关的标注。
+</code></pre><h2 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h2><p>每一个对象都有自身的特征和自身的行为</p>
+<pre><code>董旻-一个具体的对象
+特征：
+    衣服：粉色
+    颜值:S
+    技术：硬
+行为：
+    抽烟
+    喝酒
+    烫头
+创建对象的方式：
+var obj={};
+var obj=new Object();
+添加属性和方法通过对象名.属性名
+Dm.faceValue=&quot;S&quot;;
+方法跟属性的区别在于，方法中保存的是函数
+Dm.sayHi=function(){
+    alert(&quot;Nihao&quot;);
+};
+</code></pre><h2 id="this"><a href="#this" class="headerlink" title="this"></a>this</h2><pre><code>在方法中使用this表示这个方法所属于的对象。
+构造函数
+在调用构造函数的时候，调用前加new
+构造函数的作用就是创建对象，在构造函数内需要做的事情就是添加属性和方法，
+使用this，this就代表创造出来的对象，
+构造函数的名字，首字母大写
+</code></pre><h2 id="this的问题"><a href="#this的问题" class="headerlink" title="this的问题"></a>this的问题</h2><p>在添加循环事件的时候，不要在循环内使用循环变量。可以替换为this</p>
+<h2 id="className的使用"><a href="#className的使用" class="headerlink" title="className的使用"></a>className的使用</h2><p>操作标签的类名属性不要用class，因为class是js的关键字，所以使用js提供的className去访问类名属性</p>
+<h2 id="取消默认事件"><a href="#取消默认事件" class="headerlink" title="取消默认事件"></a>取消默认事件</h2><p>对于一些具有默认事件效果的标签，例如a标签的跳转，我们如果不想执行默认的事件效果，可以在事件的后面加上return false</p>
+<h2 id="移入移出事件"><a href="#移入移出事件" class="headerlink" title="移入移出事件"></a>移入移出事件</h2><p>鼠标移入onmouseover鼠标悬停在元素上方触发一次代码<br>鼠标移出onmouseout鼠标离开元素触发一次代码</p>
+<h2 id="样式的注意点"><a href="#样式的注意点" class="headerlink" title="样式的注意点"></a>样式的注意点</h2><p>使用js设置的样式是应用于标签的行内，所以优先级高。<br>如果在进行动态的类名添加，会出现优先级不够的情况，可以使用！important</p>
+<h2 id="排他思想"><a href="#排他思想" class="headerlink" title="排他思想"></a>排他思想</h2><p>清除所有人，再设置自己。<br>点击按钮变色</p>
+<h2 id="标签的自定义属性"><a href="#标签的自定义属性" class="headerlink" title="标签的自定义属性"></a>标签的自定义属性</h2><p>标签是一个对象，所以标签页可以添加自定义属性。<br>具体使用方法见tab案例中</p>
+<h2 id="表单操作"><a href="#表单操作" class="headerlink" title="表单操作"></a>表单操作</h2><p>获取和设置值使用value属性<br>获取焦点事件 onfocus<br>失去焦点事件 onblur</p>
 
       
     </div>
@@ -457,6 +591,10 @@ for (var i = 0; i &lt; arr.length; i++) {
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/06/01/jQuery/" rel="prev" title="jQuery">
+                jQuery <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -537,7 +675,7 @@ for (var i = 0; i &lt; arr.length; i++) {
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -574,7 +712,7 @@ for (var i = 0; i &lt; arr.length; i++) {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#变量"><span class="nav-number">1.</span> <span class="nav-text">变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量的基本使用"><span class="nav-number">2.</span> <span class="nav-text">变量的基本使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据类型"><span class="nav-number">3.</span> <span class="nav-text">数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类型转换"><span class="nav-number">4.</span> <span class="nav-text">类型转换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运算符"><span class="nav-number">5.</span> <span class="nav-text">运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运算符的优先级"><span class="nav-number">6.</span> <span class="nav-text">运算符的优先级</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#if语句"><span class="nav-number">7.</span> <span class="nav-text">if语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#switch语句"><span class="nav-number">8.</span> <span class="nav-text">switch语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三元运算符"><span class="nav-number">9.</span> <span class="nav-text">三元运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组"><span class="nav-number">10.</span> <span class="nav-text">数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组的声明方式"><span class="nav-number">11.</span> <span class="nav-text">数组的声明方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组的长度"><span class="nav-number">12.</span> <span class="nav-text">数组的长度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组的索引"><span class="nav-number">13.</span> <span class="nav-text">数组的索引</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组的长度和索引的关系"><span class="nav-number">14.</span> <span class="nav-text">数组的长度和索引的关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组的基本操作方法"><span class="nav-number">15.</span> <span class="nav-text">数组的基本操作方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本类型和复杂数据类型"><span class="nav-number">16.</span> <span class="nav-text">基本类型和复杂数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据类型检测"><span class="nav-number">17.</span> <span class="nav-text">数据类型检测</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数"><span class="nav-number">18.</span> <span class="nav-text">函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函授的声明方式"><span class="nav-number">19.</span> <span class="nav-text">函授的声明方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#调用"><span class="nav-number">20.</span> <span class="nav-text">调用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数名的使用"><span class="nav-number">21.</span> <span class="nav-text">函数名的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数的参数"><span class="nav-number">22.</span> <span class="nav-text">函数的参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数内的变量"><span class="nav-number">23.</span> <span class="nav-text">函数内的变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数的返回值"><span class="nav-number">24.</span> <span class="nav-text">函数的返回值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数的大体概括"><span class="nav-number">25.</span> <span class="nav-text">函数的大体概括</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量作用域"><span class="nav-number">26.</span> <span class="nav-text">变量作用域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#作用域的优先级"><span class="nav-number">27.</span> <span class="nav-text">作用域的优先级</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js解析的过程"><span class="nav-number">28.</span> <span class="nav-text">js解析的过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数的声明方式"><span class="nav-number">29.</span> <span class="nav-text">函数的声明方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#匿名函数和自调用函数"><span class="nav-number">30.</span> <span class="nav-text">匿名函数和自调用函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对象"><span class="nav-number">31.</span> <span class="nav-text">对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#this"><span class="nav-number">32.</span> <span class="nav-text">this</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#变量"><span class="nav-number">1.</span> <span class="nav-text">变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量的基本使用"><span class="nav-number">2.</span> <span class="nav-text">变量的基本使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据类型"><span class="nav-number">3.</span> <span class="nav-text">数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类型转换"><span class="nav-number">4.</span> <span class="nav-text">类型转换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运算符"><span class="nav-number">5.</span> <span class="nav-text">运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运算符的优先级"><span class="nav-number">6.</span> <span class="nav-text">运算符的优先级</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#if语句"><span class="nav-number">7.</span> <span class="nav-text">if语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#switch语句"><span class="nav-number">8.</span> <span class="nav-text">switch语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三元运算符"><span class="nav-number">9.</span> <span class="nav-text">三元运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组"><span class="nav-number">10.</span> <span class="nav-text">数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组的声明方式"><span class="nav-number">11.</span> <span class="nav-text">数组的声明方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组的长度"><span class="nav-number">12.</span> <span class="nav-text">数组的长度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组的索引"><span class="nav-number">13.</span> <span class="nav-text">数组的索引</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组的长度和索引的关系"><span class="nav-number">14.</span> <span class="nav-text">数组的长度和索引的关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组的基本操作方法"><span class="nav-number">15.</span> <span class="nav-text">数组的基本操作方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本类型和复杂数据类型"><span class="nav-number">16.</span> <span class="nav-text">基本类型和复杂数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据类型检测"><span class="nav-number">17.</span> <span class="nav-text">数据类型检测</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数"><span class="nav-number">18.</span> <span class="nav-text">函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函授的声明方式"><span class="nav-number">19.</span> <span class="nav-text">函授的声明方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#调用"><span class="nav-number">20.</span> <span class="nav-text">调用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数名的使用"><span class="nav-number">21.</span> <span class="nav-text">函数名的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数的参数"><span class="nav-number">22.</span> <span class="nav-text">函数的参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数内的变量"><span class="nav-number">23.</span> <span class="nav-text">函数内的变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数的返回值"><span class="nav-number">24.</span> <span class="nav-text">函数的返回值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数的大体概括"><span class="nav-number">25.</span> <span class="nav-text">函数的大体概括</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量作用域"><span class="nav-number">26.</span> <span class="nav-text">变量作用域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#作用域的优先级"><span class="nav-number">27.</span> <span class="nav-text">作用域的优先级</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js解析的过程"><span class="nav-number">28.</span> <span class="nav-text">js解析的过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数的声明方式"><span class="nav-number">29.</span> <span class="nav-text">函数的声明方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#匿名函数和自调用函数"><span class="nav-number">30.</span> <span class="nav-text">匿名函数和自调用函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对象"><span class="nav-number">31.</span> <span class="nav-text">对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#this"><span class="nav-number">32.</span> <span class="nav-text">this</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#this的问题"><span class="nav-number">33.</span> <span class="nav-text">this的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#className的使用"><span class="nav-number">34.</span> <span class="nav-text">className的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#取消默认事件"><span class="nav-number">35.</span> <span class="nav-text">取消默认事件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#移入移出事件"><span class="nav-number">36.</span> <span class="nav-text">移入移出事件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#样式的注意点"><span class="nav-number">37.</span> <span class="nav-text">样式的注意点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#排他思想"><span class="nav-number">38.</span> <span class="nav-text">排他思想</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标签的自定义属性"><span class="nav-number">39.</span> <span class="nav-text">标签的自定义属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表单操作"><span class="nav-number">40.</span> <span class="nav-text">表单操作</span></a></li></ol></div>
             
 
           </div>
@@ -789,4 +927,3 @@ for (var i = 0; i &lt; arr.length; i++) {
 
 </body>
 </html>
-<script type="text/javascript" src="/js/src/love.js"></script>
